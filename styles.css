@@ -22,59 +22,6 @@ h1 {
   display: none;
 }
 
-/* Menú lateral */
-.menu-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #6f4c9c;
-  padding: 60px 20px 20px; /* Añadir espacio arriba */
-  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-  overflow-y: auto;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  z-index: 1000;
-}
-
-.menu-container.active {
-  transform: translateX(0);
-}
-
-#menu-btn {
-  background-color: #ffb71b;
-  color: #6f4c9c;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1100;
-}
-
-/* Estilos del menú */
-#menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#menu li {
-  padding: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-#menu li a {
-  text-decoration: none;
-  color: white;
-  display: block;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
 /* === VISTA ANUAL === */
 #year-view {
   display: grid;
@@ -168,14 +115,18 @@ h1 {
   background-color: #e6dff0;
 }
 
-.has-event::after {
-  content: "•";
+.event-badge {
   position: absolute;
-  bottom: 8px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  color: #ffb71b;
-  font-size: 1.2rem;
+  transform: translate(-50%, -50%);
+  background-color: #ffb71b;
+  color: #6f4c9c;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 12px;
+  line-height: 1;
 }
 
 #back-to-year {

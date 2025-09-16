@@ -78,6 +78,7 @@ function renderCalendar() {
 
     if (event) {
       cell.classList.add("has-event");
+      cell.insertAdjacentHTML('beforeend', '<span class="event-badge">Evento</span>');
       cell.addEventListener("click", () => {
         eventTitle.textContent = event.title;
         eventDetails.textContent = event.details;
@@ -90,14 +91,6 @@ function renderCalendar() {
     calendarContainer.appendChild(cell);
   }
 }
-
-  // Menú lateral
-  const menuBtn = document.getElementById("menu-btn");
-  const menuContainer = document.querySelector(".menu-container");
-
-  menuBtn.addEventListener("click", () => {
-    menuContainer.classList.toggle("active");
-  });
 
 function showMonthView() {
   yearView.classList.add("hidden");
@@ -127,7 +120,7 @@ window.addEventListener("click", (e) => { if (e.target === modal) modal.style.di
 
 renderYearView();
 
-// Si estamos en agosto o después, abrir mes actual por defecto
+// Abrir mes actual por defecto
 if (currentDate.getMonth() >= 7) {
   showMonthView();
 }
