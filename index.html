@@ -9,24 +9,47 @@
 <body>
   <header>
     <h1>Radar Cultural</h1>
-    <div class="calendar-header">
-      <button id="prev-month">&lt;</button>
-      <h2 id="month-year"></h2>
-      <button id="next-month">&gt;</button>
+    <h2 id="view-title">Calendario Anual 2025</h2>
+    <button id="menu-btn">☰ Menú</button>
+    <div class="menu-container">
+      <ul id="menu">
+        <li><a href="dalp.html">¿Quiénes Somos?</a></li>
+        <li><a href="https://lookerstudio.google.com/reporting/1aa7fdda-cc47-45b1-bd77-309466e0f147" target="_blank">Tablero de Estímulos del SDACP</a></li>
+        <li><a href="https://lookerstudio.google.com/u/1/reporting/04d62571-d4d6-47af-ada3-ef1cd37df2e8/page/p_c78b0ujcld" target="_blank">Tablero de Gestión Documental</a></li>
+        <li><a href="https://www.culturarecreacionydeporte.gov.co/es/seguimiento-SDACP" target="_blank">Tablero del SDACP</a></li>
+		<li><a href="https://lookerstudio.google.com/reporting/a33aa7bf-09db-4369-a372-36a48ea103ab">Aplicación Art. 62</a></li>
+        <li><a href="https://leonardo-forero.github.io/estado-consejeria/">Consulta el Estado de tu Consejería</a></li>
+        <li><a href="https://leonardo-forero.github.io/directorio-sdacp/">Directorio de Consejer@s</a></li>
+		<li><a href="https://leonardo-forero.github.io/calendarioSDACP/">Directorio de Consejer@s</a></li>
+        <li><a href="https://leonardo-forero.github.io/videojuego-scrd/" target="_blank">Mesa de NNA</a></li>	
+        <li><a href="preguntasfrecuentes.html">Preguntas Frecuentes</a></li>		
+      </ul>
     </div>
   </header>
 
   <main>
-    <div id="weekdays">
-      <div>Lun</div>
-      <div>Mar</div>
-      <div>Mié</div>
-      <div>Jue</div>
-      <div>Vie</div>
-      <div>Sáb</div>
-      <div>Dom</div>
+    <!-- Vista Anual -->
+    <div id="year-view"></div>
+
+    <!-- Vista Mensual -->
+    <div id="month-view" class="hidden">
+      <div class="calendar-header">
+        <button id="prev-month">&lt;</button>
+        <h2 id="month-year"></h2>
+        <button id="next-month">&gt;</button>
+      </div>
+      <div id="weekdays">
+        <div>Lun</div>
+        <div>Mar</div>
+        <div>Mié</div>
+        <div>Jue</div>
+        <div>Vie</div>
+        <div>Sáb</div>
+        <div>Dom</div>
+      </div>
+      <div id="calendar"></div>
+      <button id="back-to-year">Volver a vista anual</button>
     </div>
-    <div id="calendar"></div>
   </main>
 
   <!-- Modal de eventos -->

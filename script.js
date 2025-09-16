@@ -15,8 +15,12 @@ const events = [
   }
 ];
 
+const yearView = document.getElementById("year-view");
+const monthView = document.getElementById("month-view");
 const calendarContainer = document.getElementById("calendar");
 const monthYear = document.getElementById("month-year");
+const viewTitle = document.getElementById("view-title");
+
 const modal = document.getElementById("event-modal");
 const closeModal = document.getElementById("close-modal");
 const eventTitle = document.getElementById("event-title");
@@ -25,7 +29,22 @@ const eventImage = document.getElementById("event-image");
 const eventLink = document.getElementById("event-link");
 
 let currentDate = new Date();
-currentDate.setMonth(7); // Agosto es mes 7 (0 = enero)
+
+function renderYearView() {
+  const startMonth = 7; // agosto
+  for (let m = startMonth; m < 12; m++) {
+    const card = document.createElement("div");
+    card.classList.add("month-card");
+    card.textContent = new Date(currentDate.getFullYear(), m).toLocaleString('es-ES', { month: 'long' });
+
+    card.addEventListener("click", () => {
+      currentDate.setMonth(m);
+      showMonthView();
+    });
+
+    yearView.appendChild(card);
+  }
+}
 
 function renderCalendar() {
   const year = currentDate.getFullYear();
@@ -72,6 +91,21 @@ function renderCalendar() {
   }
 }
 
+  // Menú lateral
+  const menuBtn = document.getElementById("menu-btn");
+  const menuContainer = document.querySelector(".menu-container");
+
+  menuBtn.addEventListener("click", () => {
+    menuContainer.classList.toggle("active");
+  });
+
+function showMonthView() {
+  yearView.classList.add("hidden");
+  monthView.classList.remove("hidden");
+  viewTitle.textContent = "Calendario de Eventos";
+  renderCalendar();
+}
+
 document.getElementById("prev-month").addEventListener("click", () => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   renderCalendar();
@@ -82,7 +116,18 @@ document.getElementById("next-month").addEventListener("click", () => {
   renderCalendar();
 });
 
+document.getElementById("back-to-year").addEventListener("click", () => {
+  monthView.classList.add("hidden");
+  yearView.classList.remove("hidden");
+  viewTitle.textContent = "Calendario Anual 2025";
+});
+
 closeModal.addEventListener("click", () => modal.style.display = "none");
 window.addEventListener("click", (e) => { if (e.target === modal) modal.style.display = "none"; });
 
-renderCalendar();
+renderYearView();
+
+// Si estamos en agosto o después, abrir mes actual por defecto
+if (currentDate.getMonth() >= 7) {
+  showMonthView();
+}
