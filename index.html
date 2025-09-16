@@ -9,30 +9,27 @@
 <body>
   <header>
     <h1>Radar Cultural</h1>
-    <h2>Calendario de Eventos</h2>
+    <div class="calendar-header">
+      <button id="prev-month">&lt;</button>
+      <h2 id="month-year"></h2>
+      <button id="next-month">&gt;</button>
+    </div>
   </header>
 
   <main>
-    <div class="calendar-nav">
-      <button id="prev-month">←</button>
-      <h3 id="month-year"></h3>
-      <button id="next-month">→</button>
+    <div id="weekdays">
+      <div>Lun</div>
+      <div>Mar</div>
+      <div>Mié</div>
+      <div>Jue</div>
+      <div>Vie</div>
+      <div>Sáb</div>
+      <div>Dom</div>
     </div>
-
-    <div class="calendar-grid">
-      <div class="day-name">Lun</div>
-      <div class="day-name">Mar</div>
-      <div class="day-name">Mié</div>
-      <div class="day-name">Jue</div>
-      <div class="day-name">Vie</div>
-      <div class="day-name">Sáb</div>
-      <div class="day-name">Dom</div>
-    </div>
-
-    <div id="calendar" class="calendar-grid"></div>
+    <div id="calendar"></div>
   </main>
 
-  <!-- Modal -->
+  <!-- Modal de eventos -->
   <div id="event-modal" class="modal">
     <div class="modal-content">
       <span id="close-modal">&times;</span>
