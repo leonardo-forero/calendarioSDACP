@@ -39,7 +39,7 @@ const events = [
     title: "Cáspulas Simultáneas",
     details: "📅 17 de septiembre | 🕒 6:00 PM | 📍 Virtual",
     image: "capsulas17septiembre.jpeg",
-    link: ""
+    link: "https://meet.google.com/wzx-risv-wpk"
   }
 ];
 
