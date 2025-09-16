@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radar Cultural - Calendario</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Radar Cultural</h1>
+    <h2>Calendario de Eventos</h2>
+  </header>
+
+  <main>
+    <div class="calendar-nav">
+      <button id="prev-month">← Anterior</button>
+      <h3 id="month-year"></h3>
+      <button id="next-month">Siguiente →</button>
+    </div>
+    <div id="calendar"></div>
+  </main>
+
+  <!-- Modal de eventos -->
+  <div id="event-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <h3 id="event-title"></h3>
+      <p id="event-details"></p>
+      <img id="event-image" alt="Pieza publicitaria">
+      <p><a id="event-link" href="#" target="_blank">Ver grabación</a></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
