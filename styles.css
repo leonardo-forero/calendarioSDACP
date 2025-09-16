@@ -1,9 +1,11 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   background-color: #6f4c9c;
   color: white;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header h1 {
@@ -20,45 +22,60 @@ header h2 {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .calendar-nav button {
   background-color: #ffb71b;
   color: #6f4c9c;
   border: none;
-  padding: 8px 12px;
+  padding: 6px 12px;
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 1rem;
 }
 
-.calendar-nav button:hover {
-  opacity: 0.8;
+.calendar-nav h3 {
+  margin: 0;
 }
 
-#calendar {
+.calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
-  padding: 10px;
+  width: 90%;
+  max-width: 700px;
+}
+
+.day-name {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 8px 0;
+  border-radius: 6px;
 }
 
 .day {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  padding: 15px 0;
+  padding: 12px 0;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.15s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 60px;
 }
 
 .day:hover {
   transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.today {
+  background-color: rgba(255, 183, 27, 0.4);
+  border: 2px solid #ffb71b;
 }
 
 .event-indicator {
@@ -69,23 +86,25 @@ header h2 {
   margin-top: 5px;
 }
 
+/* Modal */
 .modal {
   display: none;
   position: fixed;
   z-index: 10;
   left: 0; top: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.75);
 }
 
 .modal-content {
   background: white;
   color: #333;
-  margin: 10% auto;
+  margin: 8% auto;
   padding: 20px;
   border-radius: 15px;
-  width: 80%;
-  max-width: 600px;
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
 }
 
 #close-modal {

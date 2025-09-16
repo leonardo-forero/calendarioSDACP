@@ -1,4 +1,3 @@
-// Lista de eventos
 const events = [
   {
     date: "2025-08-15",
@@ -8,11 +7,11 @@ const events = [
     link: "https://meet.google.com/grabacion-lanzamiento"
   },
   {
-    date: "2025-09-20",
-    title: "Diálogo Cultural: Saberes Ancestrales",
-    details: "📅 20 de septiembre | 🕒 5:00 PM | 📍 Virtual",
-    image: "img/dialogo1.jpg",
-    link: "https://meet.google.com/grabacion-ejemplo"
+    date: "2025-09-16",
+    title: "Mesa de Saberes",
+    details: "📅 16 de septiembre | 🕒 6:00 PM | 📍 Virtual",
+    image: "img/mesa.jpg",
+    link: "https://meet.google.com/mesa"
   },
   {
     date: "2025-09-30",
@@ -36,25 +35,27 @@ const eventImage = document.getElementById("event-image");
 const eventLink = document.getElementById("event-link");
 
 let currentYear = 2025;
-let currentMonth = 7; // Agosto (0=enero, 7=agosto)
+let currentMonth = 7; // Agosto
 
 function renderCalendar() {
   calendarContainer.innerHTML = "";
 
-  const monthNames = [
-    "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-    "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
-  ];
+  const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio",
+                      "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 
   monthYearLabel.textContent = `${monthNames[currentMonth]} ${currentYear}`;
 
   const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const offset = firstDay === 0 ? 6 : firstDay - 1;
   const lastDate = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-  for (let i = 0; i < firstDay; i++) {
+  for (let i = 0; i < offset; i++) {
     const emptyCell = document.createElement("div");
     calendarContainer.appendChild(emptyCell);
   }
+
+  const today = new Date();
+  const todayString = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,"0")}-${String(today.getDate()).padStart(2,"0")}`;
 
   for (let day = 1; day <= lastDate; day++) {
     const cell = document.createElement("div");
@@ -62,19 +63,25 @@ function renderCalendar() {
     cell.textContent = day;
 
     const dateString = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-    const event = events.find(e => e.date === dateString);
+    if (dateString === todayString) cell.classList.add("today");
 
-    if (event) {
+    const event = events.filter(e => e.date === dateString);
+    if (event.length > 0) {
       const indicator = document.createElement("div");
       indicator.classList.add("event-indicator");
       cell.appendChild(indicator);
 
       cell.addEventListener("click", () => {
-        eventTitle.textContent = event.title;
-        eventDetails.textContent = event.details;
-        eventImage.src = event.image;
-        eventLink.href = event.link;
-        modal.style.display = "block";
+        if (event.length === 1) {
+          showEvent(event[0]);
+        } else {
+          // si hay varios eventos en el mismo día
+          let details = event.map(e => `<p><b>${e.title}</b><br>${e.details}<br><a href="${e.link}" target="_blank">Ver grabación</a></p>`).join("<hr>");
+          eventTitle.textContent = `Eventos del ${day} de ${monthNames[currentMonth]}`;
+          eventDetails.innerHTML = details;
+          eventImage.style.display = "none";
+          modal.style.display = "block";
+        }
       });
     }
 
@@ -82,9 +89,17 @@ function renderCalendar() {
   }
 }
 
-// Botones de navegación
+function showEvent(event) {
+  eventTitle.textContent = event.title;
+  eventDetails.textContent = event.details;
+  eventImage.src = event.image;
+  eventImage.style.display = "block";
+  eventLink.href = event.link;
+  modal.style.display = "block";
+}
+
 prevBtn.addEventListener("click", () => {
-  if (currentMonth > 7) { // No permitir ir antes de agosto
+  if (currentMonth > 7) { 
     currentMonth--;
     renderCalendar();
   }
@@ -99,9 +114,7 @@ nextBtn.addEventListener("click", () => {
   renderCalendar();
 });
 
-// Modal
 closeModal.addEventListener("click", () => modal.style.display = "none");
 window.addEventListener("click", (e) => { if (e.target === modal) modal.style.display = "none"; });
 
-// Render inicial
 renderCalendar();

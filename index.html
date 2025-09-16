@@ -14,14 +14,25 @@
 
   <main>
     <div class="calendar-nav">
-      <button id="prev-month">← Anterior</button>
+      <button id="prev-month">←</button>
       <h3 id="month-year"></h3>
-      <button id="next-month">Siguiente →</button>
+      <button id="next-month">→</button>
     </div>
-    <div id="calendar"></div>
+
+    <div class="calendar-grid">
+      <div class="day-name">Lun</div>
+      <div class="day-name">Mar</div>
+      <div class="day-name">Mié</div>
+      <div class="day-name">Jue</div>
+      <div class="day-name">Vie</div>
+      <div class="day-name">Sáb</div>
+      <div class="day-name">Dom</div>
+    </div>
+
+    <div id="calendar" class="calendar-grid"></div>
   </main>
 
-  <!-- Modal de eventos -->
+  <!-- Modal -->
   <div id="event-modal" class="modal">
     <div class="modal-content">
       <span id="close-modal">&times;</span>
