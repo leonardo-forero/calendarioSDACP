@@ -1,17 +1,45 @@
 const events = [
   {
-    date: "2025-09-16",
-    title: "Taller de Memoria Cultural",
-    details: "📅 16 de septiembre | 🕒 5:00 PM | 📍 Virtual",
-    image: "img/taller.jpg",
-    link: "https://meet.google.com/ejemplo"
+    date: "2025-08-20",
+    title: "Ciclo de Fortalecimiento a Consejer@s del SDACP",
+    details: "📅 20 de agosto | 🕒 6:00 PM | 📍 Virtual",
+    image: "ciclo20agosto.jpeg",
+    link: "https://drive.google.com/file/d/1BpyfKlVvRB86lxG2ERYgbvKTgx_Jji8d/view"
   },
   {
-    date: "2025-09-30",
+    date: "2025-08-25",
+    title: "Conversatorios Simultáneos",
+    details: "📅 25 de agosto | 🕒 3:00 PM | 📍 Centro de Memoria, Paz y Reconciliación",
+    image: "conversatorio25agosto.jpeg",
+    link: "https://drive.google.com/file/d/1gNdJjDHOMqkZXuAT5laiqnm34xio3car/view"
+  },
+  {
+    date: "2025-08-27",
+    title: "Cáspulas Simultáneas",
+    details: "📅 27 de agosto | 🕒 6:00 PM | 📍 Virtual",
+    image: "capsulas27agosto.jpeg",
+    link: "https://drive.google.com/file/d/1QN2Bx4YNT1ua8mqb_f7Qp3SGhiNWI6yN/view"
+  },
+  {
+    date: "2025-08-30",
+    title: "Ciclo de Fortalecimiento a Consejer@s del SDACP",
+    details: "📅 30 de agosto | 🕒 10:00 AM | 📍 Virtual",
+    image: "ciclo30agosto.jpeg",
+    link: "https://drive.google.com/file/d/1LFNcqJAx4ADmScwN2x-sFdxP_yCEWQNI/view"
+  },
+  {
+    date: "2025-09-13",
     title: "Foro: Arte y Participación",
-    details: "📅 30 de septiembre | 🕒 3:00 PM | 📍 Biblioteca Virgilio Barco",
-    image: "img/foro.jpg",
-    link: "https://meet.google.com/ejemplo-foro"
+    details: "📅 13 de septiembre | 🕒 10:00 AM | 📍 Virtual",
+    image: "ciclo13septiembre.jpeg",
+    link: "https://drive.google.com/file/d/1sJYYzx_sAoEc2gt6avbSHGKTU0IkDj5k/view"
+  },
+  {
+    date: "2025-09-17",
+    title: "Cáspulas Simultáneas",
+    details: "📅 17 de septiembre | 🕒 6:00 PM | 📍 Virtual",
+    image: "capsulas17septiembre.jpeg",
+    link: ""
   }
 ];
 
